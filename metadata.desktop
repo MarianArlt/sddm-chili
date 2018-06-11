@@ -1,0 +1,16 @@
+[SddmGreeterTheme]
+Name=Chili
+Description=The hottest SDDM theme around
+Author=Marian Alexander Arlt
+Copyright=(c) 2018, Marian Alexander Arlt
+Email=marianarlt@icloud.com
+License=GNU General Public License
+Type=sddm-theme
+Version=0.1.0
+Website=https://github.com/MarianArlt/sddm-theme-chili
+Screenshot=preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Theme-Id=chili
+Theme-API=2.0
