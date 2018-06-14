@@ -28,6 +28,9 @@ import "components"
 Rectangle {
     id: root
 
+    width: 1600
+    height: 900
+
     property string notificationMessage
     property string generalFontColor: "white"
     property int generalFontSize: config.changeFontPointSize ? config.changeFontPointSize : root.height / 80
@@ -173,7 +176,7 @@ Rectangle {
             id: footer
 
             Layout.fillHeight: false
-            Layout.alignment: parent.AlignBottom
+            Layout.alignment: Qt.AlignBottom
             Layout.bottomMargin: generalFontSize
             Layout.leftMargin: generalFontSize * 1.5
 
