@@ -57,7 +57,8 @@ Rectangle {
 
             Layout.alignment: Qt.AlignRight
             Layout.fillHeight: false
-            Layout.topMargin: header.height / 4.5 + 4
+            Layout.topMargin: generalFontSize
+            Layout.rightMargin: generalFontSize * 1.5
 
             KeyboardLayoutButton {
 
@@ -73,7 +74,6 @@ Rectangle {
                 
                 Layout.fillHeight: true
                 Layout.minimumWidth: clockLabel.width
-                Layout.rightMargin: header.height / 2
 
                 Label {
                     id: clockLabel
@@ -114,7 +114,7 @@ Rectangle {
                 lastUserName: userModel.lastUser
                 usernameFontSize: root.generalFontSize
                 usernameFontColor: root.generalFontColor
-                faceSize: config.avatarPixelSize ? config.avatarPixelSize : root.width / 15
+                faceSize: config.changeAvatarPixelSize ? config.changeAvatarPixelSize : root.width / 15
 
                 showUserList: {
                     if ( !userListModel.hasOwnProperty("count") || !userListModel.hasOwnProperty("disableAvatarsThreshold") )
@@ -133,21 +133,21 @@ Rectangle {
                 actionItems: [
                     ActionButton {
                         iconSource: "assets/suspend.svgz"
-                        text: textConstants.suspend // ??? Error -> Check SddmComponents TextConstants
+                        text: config.translationSuspend ? config.translationSuspend : "Suspend"
                         onClicked: sddm.suspend()
                         enabled: sddm.canSuspend
                         iconSize: root.generalFontSize * 3
                     },
                     ActionButton {
                         iconSource: "assets/reboot.svgz"
-                        text: textConstants.reboot
+                        text: config.translationReboot ? config.translationReboot : textConstants.reboot
                         onClicked: sddm.reboot()
                         enabled: sddm.canReboot
                         iconSize: root.generalFontSize * 3
                     },
                     ActionButton {
                         iconSource: "assets/shutdown.svgz"
-                        text: textConstants.shutdown
+                        text: config.translationPowerOff ? config.translationPowerOff : textConstants.shutdown
                         onClicked: sddm.powerOff()
                         enabled: sddm.canPowerOff
                         iconSize: root.generalFontSize * 3
@@ -173,12 +173,12 @@ Rectangle {
             id: footer
 
             Layout.fillHeight: false
-            Layout.bottomMargin: header.height / 4.5
+            Layout.alignment: parent.AlignBottom
+            Layout.bottomMargin: generalFontSize
+            Layout.leftMargin: generalFontSize * 1.5
 
             SessionMenu {
                 id: sessionMenu
-
-                Layout.leftMargin: header.height / 2
 
                 rootFontSize: root.generalFontSize
                 rootFontColor: root.generalFontColor

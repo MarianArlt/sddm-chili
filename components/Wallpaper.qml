@@ -41,8 +41,8 @@ FocusScope {
 
         anchors.fill: backgroundImage
         source: backgroundImage
-        radius: config.recursiveBlurRadius
-        loops: config.recursiveBlurLoops
+        radius: config.blur == true ? config.recursiveBlurRadius : 0
+        loops: config.blur == true ? config.recursiveBlurLoops : 0
     }
 
     MouseArea {
