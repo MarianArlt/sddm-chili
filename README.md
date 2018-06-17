@@ -8,13 +8,13 @@ Chili for SDDM is the desktop environment *independent* adaption of my chili log
 
 ### Dependencies
 
-None. Easy as that!  
+None. Easy as that!
 *(SDDM pulls in Qt5 by default so you usually won't have to install any extra packages.)*
 
 
 ### Installing the theme
 
-Go to [openDesktop.org](https://www.opendesktop.org/p/1214121), download the archive and extract the contents to the theme directory of SDDM *(change the path for the downloaded file if necessary)*:
+[Download the tar archive from openDesktop](https://www.opendesktop.org/p/1214121) and extract the contents to the theme directory of SDDM *(change the path for the downloaded file if necessary)*:
 ```
 $ sudo tar -xzvf ~/Downloads/sddm-chili.tar.gz -C /usr/share/sddm/themes
 ```
@@ -27,26 +27,26 @@ In the `[Theme]` section set `Current=chili`. For a more detailed description pl
 ### Theming the theme
 
 Chili is highly customizable through its included `theme.conf` file. You can alter the intensity of the background blur and even not have any blur at all. If you have a very big screen and the fonts have a weird size then fix it yourself in the config file. You can even change the avatar size to something that better suits you. And if that wasn't enough still you can translate the power buttons because SDDM is still lacking behind in translations!
-  
 
-  * Change the path of the background image relative to the theme directory:  
-  `background=assets/background.jpg`  
 
-  * Disable blur or play around with its intensity:  
-  `blur=true`  
-  `recursiveBlurLoops=4`  
+  * Change the path of the background image relative to the theme directory:
+  `background=assets/background.jpg`
+
+  * Disable blur or play around with its intensity:
+  `blur=true`
+  `recursiveBlurLoops=4`
   `recursiveBlurRadius=15`
 
-  * Adjust the font size of the whole theme in one go:  
-  *(Usually somewhere between 10 and 16, be careful)*  
+  * Adjust the font size of the whole theme in one go:
+  *(Usually somewhere between 10 and 16, be careful)*
   `changeFontPointSize=`
 
-  * Adjust the size of the avatar image:  
+  * Adjust the size of the avatar image:
   `changeAvatarPixelSize=`
 
-  * Translate the labels of the power buttons:  
-  `translationReboot=`  
-  `translationSuspend=`  
+  * Translate the labels of the power buttons:
+  `translationReboot=`
+  `translationSuspend=`
   `translationPowerOff=`
 
 You might see some grey pixels around your avatar image which is caused by the anti-aliasing of the opacity mask. You may change the fill color of the mask which resides in `assets/mask.svg` to a color that better matches with your avatar colors. Do **not** change the *opacity* of the mask! Take note that this might affect other avatar images with different colors present on your system.
