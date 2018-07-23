@@ -30,7 +30,7 @@ Item {
     signal clicked
 
     activeFocusOnTab: true
-    opacity: mouseArea.containsMouse || activeFocus ? 1 : 0.6
+    opacity: ( mouseArea.containsMouse || activeFocus ) ? 1 : 0.6
     property int iconSize
 
     implicitWidth: Math.max(iconSize + 30, label.contentWidth)
@@ -69,11 +69,12 @@ Item {
         id: mouseArea
         hoverEnabled: true
         onClicked: root.clicked()
-        anchors.fill: parent
+        anchors.fill: root
     }
 
     Keys.onEnterPressed: clicked()
     Keys.onReturnPressed: clicked()
+    Keys.onSpacePressed: clicked()
 
     Accessible.onPressAction: clicked()
     Accessible.role: Accessible.Button
