@@ -26,6 +26,7 @@ import QtQuick.Controls.Styles 1.4
 LoginFormLayout {
 
 	property string lastUserName
+	property bool passwordFieldOutlined: config.PasswordFieldOutlined == "true"
     property int inputSpacing: 8
 
     signal loginRequest(string username, string password)
@@ -38,10 +39,9 @@ LoginFormLayout {
 
     RowLayout {
 
-
         Layout.leftMargin: loginButton.width + inputSpacing * 2
         Layout.minimumWidth: passwordField.width + loginButton.width + inputSpacing * 2
-        
+
         TextField {
             id: passwordField
 
@@ -55,11 +55,15 @@ LoginFormLayout {
             implicitWidth: root.width / 5
             implicitHeight: usernameFontSize * 2.75
             opacity: 0.5
-            
+
             style: TextFieldStyle {
-                textColor: "black"
+                textColor: passwordFieldOutlined ? "white" : "black"
+                placeholderTextColor: passwordFieldOutlined ? "white" : "black"
                 background: Rectangle {
                     radius: 3
+                    border.color: "white"
+                    border.width: 1
+                    color: passwordFieldOutlined ? "transparent" : "white"
                 }
             }
 

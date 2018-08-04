@@ -24,6 +24,7 @@ FocusScope {
     id: backgroundComponent
 
     property alias imageSource: backgroundImage.source
+    property bool configBlur: config.blur == "true"
 
     Image {
         id: backgroundImage
@@ -41,8 +42,8 @@ FocusScope {
 
         anchors.fill: backgroundImage
         source: backgroundImage
-        radius: config.blur == "true" ? config.recursiveBlurRadius : 0
-        loops: config.blur == "true" ? config.recursiveBlurLoops : 0
+        radius: configBlur ? config.recursiveBlurRadius : 0
+        loops: configBlur ? config.recursiveBlurLoops : 0
     }
 
     MouseArea {

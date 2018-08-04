@@ -24,28 +24,30 @@ import QtQuick.Controls 1.4
 Item {
     id: root
 
+    anchors.top: parent.bottom
+    anchors.topMargin: icon.height
+
     property alias text: label.text
     property alias iconSource: icon.source
-    property alias containsMouse: mouseArea.containsMouse
+    property alias font: label.font
     signal clicked
 
     activeFocusOnTab: true
-    opacity: mouseArea.containsMouse || activeFocus ? 1 : 0.6
     property int iconSize
+    opacity: activeFocus ? 1 : 0.6
 
-    implicitWidth: Math.max(iconSize + 30, label.contentWidth)
-    implicitHeight: iconSize + 30, label.implicitHeight
+    implicitWidth: Math.max(icon.implicitWidth, label.contentWidth)
+    implicitHeight: Math.max(icon.implicitHeight + label.height * 2, label.height)
 
     Image {
         id: icon
+
         anchors {
             top: parent.top
             horizontalCenter: parent.horizontalCenter
         }
-        anchors.topMargin: height / 2
-
-        width: iconSize
-        height: iconSize
+        width: config.PowerIconSize || iconSize
+        height: config.PowerIconSize || iconSize
     }
 
     Label {
@@ -64,16 +66,35 @@ Item {
         color: "white"
         font.underline: root.activeFocus
     }
-
     MouseArea {
         id: mouseArea
         hoverEnabled: true
+        cursorShape: Qt.PointingHandCursor
         onClicked: root.clicked()
-        anchors.fill: parent
+        onEntered: fadeIn.start()
+        onExited: fadeOut.start()
+        anchors.fill: root
+    }
+
+    PropertyAnimation {
+	id: fadeIn
+	target: root
+	properties: "opacity"
+	to: 1
+	duration: 200
+    }
+
+     PropertyAnimation {
+        id: fadeOut
+        target: root
+        properties: "opacity"
+        to: 0.6
+	duration: 200
     }
 
     Keys.onEnterPressed: clicked()
     Keys.onReturnPressed: clicked()
+    Keys.onSpacePressed: clicked()
 
     Accessible.onPressAction: clicked()
     Accessible.role: Accessible.Button
