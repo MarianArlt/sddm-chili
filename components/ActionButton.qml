@@ -77,11 +77,11 @@ Item {
     }
 
     PropertyAnimation {
-	id: fadeIn
-	target: root
-	properties: "opacity"
-	to: 1
-	duration: 200
+        id: fadeIn
+        target: root
+        properties: "opacity"
+        to: 1
+        duration: 200
     }
 
      PropertyAnimation {
@@ -89,7 +89,7 @@ Item {
         target: root
         properties: "opacity"
         to: 0.6
-	duration: 200
+        duration: 200
     }
 
     Keys.onEnterPressed: clicked()
