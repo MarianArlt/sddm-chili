@@ -32,10 +32,17 @@ Chili is highly customizable through its included `theme.conf` file. You can alt
   * Change the path of the background image relative to the theme directory:
   `background=assets/background.jpg`
 
+  * Adjust the screen dimensions if Chili looks weird:
+  `ScreenWidth=6000`
+  `ScreenHeight=4000`
+
   * Disable blur or play around with its intensity:
   `blur=true`
   `recursiveBlurLoops=4`
   `recursiveBlurRadius=15`
+
+  * (De-)Activate a new oultine-only effect for the password field:
+  `PasswordFieldOutlined=false`
 
   * Adjust the font size of the whole theme in one go:
   *(Usually somewhere between 10 and 16, be careful)*
