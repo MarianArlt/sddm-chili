@@ -33,7 +33,7 @@ Rectangle {
 
     property string notificationMessage
     property string generalFontColor: "white"
-    property int generalFontSize: config.FontPointSize : root.height / 80
+    property int generalFontSize: config.FontPointSize ? config.FontPointSize : root.height / 80
 
     TextConstants { id: textConstants }
 
@@ -117,7 +117,7 @@ Rectangle {
                 lastUserName: userModel.lastUser
                 usernameFontSize: root.generalFontSize
                 usernameFontColor: root.generalFontColor
-                faceSize: config.AvatarPixelSize : root.width / 15
+                faceSize: config.AvatarPixelSize ? config.AvatarPixelSize : root.width / 15
 
                 showUserList: {
                     if ( !userListModel.hasOwnProperty("count") || !userListModel.hasOwnProperty("disableAvatarsThreshold") )
@@ -136,21 +136,21 @@ Rectangle {
                 actionItems: [
                     ActionButton {
                         iconSource: "assets/suspend.svgz"
-                        text: config.translationSuspend : "Suspend"
+                        text: config.translationSuspend ? config.translationSuspend : "Suspend"
                         onClicked: sddm.suspend()
                         enabled: sddm.canSuspend
                         iconSize: root.generalFontSize * 3
                     },
                     ActionButton {
                         iconSource: "assets/reboot.svgz"
-                        text: config.translationReboot : textConstants.reboot
+                        text: config.translationReboot ? config.translationReboot : textConstants.reboot
                         onClicked: sddm.reboot()
                         enabled: sddm.canReboot
                         iconSize: root.generalFontSize * 3
                     },
                     ActionButton {
                         iconSource: "assets/shutdown.svgz"
-                        text: config.translationPowerOff : textConstants.shutdown
+                        text: config.translationPowerOff ? config.translationPowerOff : textConstants.shutdown
                         onClicked: sddm.powerOff()
                         enabled: sddm.canPowerOff
                         iconSize: root.generalFontSize * 3
