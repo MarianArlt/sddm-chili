@@ -8,13 +8,14 @@ Chili for SDDM is the desktop environment *independent* adaption of my chili log
 
 ### Dependencies
 
-None. Easy as that!
-*(SDDM pulls in Qt5 by default so you usually won't have to install any extra packages.)*
-
+  *sddm
+  *qt5
+  *qt5-quickcontrols
+  *qt5-graphicaleffects
 
 ### Installing the theme
 
-[Download the tar archive from openDesktop](https://www.opendesktop.org/p/1214121) and extract the contents to the theme directory of SDDM *(change the path for the downloaded file if necessary)*:
+[Download the tar archive from openDesktop](https://www.opendesktop.org/p/1240784) and extract the contents to the theme directory of SDDM *(change the path for the downloaded file if necessary)*:
 ```
 $ sudo tar -xzvf ~/Downloads/sddm-chili.tar.gz -C /usr/share/sddm/themes
 ```
