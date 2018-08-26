@@ -121,7 +121,7 @@ Rectangle {
 
                 showUserList: {
                     if ( !userListModel.hasOwnProperty("count") || !userListModel.hasOwnProperty("disableAvatarsThreshold") )
-                        return (userList.y + mainStack.y) > 0
+                        return (userList.y + loginFormStack.y) > 0
                     if ( userListModel.count == 0 )
                         return false
                     return userListModel.count <= userListModel.disableAvatarsThreshold && (userList.y + loginFormStack.y) > 0
@@ -197,7 +197,7 @@ Rectangle {
                 State {
                     name: "visible"
                     PropertyChanges {
-                        target: mainStack
+                        target: loginFormStack
                         y: Math.min(0, root.height - inputPanel.height - userListComponent.visibleBoundary)
                     }
                     PropertyChanges {
@@ -209,7 +209,7 @@ Rectangle {
                 State {
                     name: "hidden"
                     PropertyChanges {
-                        target: mainStack
+                        target: loginFormStack
                         y: 0
                     }
                     PropertyChanges {
@@ -232,7 +232,7 @@ Rectangle {
                         }
                         ParallelAnimation {
                             NumberAnimation {
-                                target: mainStack
+                                target: loginFormStack
                                 property: "y"
                                 duration: units.longDuration
                                 easing.type: Easing.InOutQuad
@@ -257,7 +257,7 @@ Rectangle {
                     SequentialAnimation {
                         ParallelAnimation {
                             NumberAnimation {
-                                target: mainStack
+                                target: loginFormStack
                                 property: "y"
                                 duration: units.longDuration
                                 easing.type: Easing.InOutQuad
