@@ -48,6 +48,7 @@ Item {
         }
         width: config.PowerIconSize || iconSize
         height: config.PowerIconSize || iconSize
+        sourceSize: Qt.size(width, height)
     }
 
     Label {
